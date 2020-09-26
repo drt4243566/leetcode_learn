@@ -1,0 +1,2 @@
+D:\c++_code\chapter4_HW\Debug\chapter4_HW.exe
+D:\c++_code\chapter4_HW\Debug\chapter4_HW.pdb

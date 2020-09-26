@@ -1,0 +1,19 @@
+﻿“chapter4_HW.exe”(Win32): 已加载“D:\c++_code\chapter4_HW\Debug\chapter4_HW.exe”。已加载符号。
+“chapter4_HW.exe”(Win32): 已加载“C:\Windows\SysWOW64\ntdll.dll”。
+“chapter4_HW.exe”(Win32): 已加载“C:\Windows\SysWOW64\kernel32.dll”。
+“chapter4_HW.exe”(Win32): 已加载“C:\Windows\SysWOW64\KernelBase.dll”。
+“chapter4_HW.exe”(Win32): 已加载“C:\Windows\SysWOW64\msvcp140d.dll”。
+“chapter4_HW.exe”(Win32): 已加载“C:\Windows\SysWOW64\vcruntime140d.dll”。
+“chapter4_HW.exe”(Win32): 已加载“C:\Windows\SysWOW64\ucrtbased.dll”。
+线程 0x1c30 已退出，返回值为 0 (0x0)。
+“chapter4_HW.exe”(Win32): 已加载“C:\Windows\SysWOW64\kernel.appcore.dll”。
+“chapter4_HW.exe”(Win32): 已加载“C:\Windows\SysWOW64\msvcrt.dll”。
+“chapter4_HW.exe”(Win32): 已加载“C:\Windows\SysWOW64\rpcrt4.dll”。
+“chapter4_HW.exe”(Win32): 已加载“C:\Windows\SysWOW64\sspicli.dll”。
+“chapter4_HW.exe”(Win32): 已加载“C:\Windows\SysWOW64\cryptbase.dll”。
+“chapter4_HW.exe”(Win32): 已加载“C:\Windows\SysWOW64\bcryptprimitives.dll”。
+“chapter4_HW.exe”(Win32): 已加载“C:\Windows\SysWOW64\sechost.dll”。
+线程 0x2a3c 已退出，返回值为 0 (0x0)。
+线程 0x7dc 已退出，返回值为 0 (0x0)。
+线程 0x31d0 已退出，返回值为 0 (0x0)。
+程序“[8268] chapter4_HW.exe”已退出，返回值为 0 (0x0)。
