@@ -1,4 +1,9 @@
 {
-  "editor.formatOnPaste": true,
-  "editor.formatOnSave": true
+    "editor.formatOnType": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "C_Cpp.clang_format_fallbackStyle": "WebKit",
+    "files.associations": {
+        "stack": "cpp"
+    }
 }
