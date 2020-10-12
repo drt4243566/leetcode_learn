@@ -21,14 +21,24 @@ public:
             s = s->next;
         }
         f = A;
-        invertLink(f);
+        f = invertLink(f);
+        s = A;
+        while (f != s)
+        {
+            if (f->val != s->val)
+                return false;
+            f = f->next;
+            s = s->next;
+        }
+        return true;
     }
-    void invertLink(ListNode *B)
+
+    ListNode *invertLink(ListNode *B)
     {
         ListNode *cur(B), *pre(B), *t;
         if (cur == NULL && cur->next == NULL)
         {
-            return;
+            return B;
         }
         cur = pre->next;
         pre->next = NULL;
@@ -39,6 +49,7 @@ public:
             pre = cur;
             cur = t;
         }
+        return cur;
     }
 };
 
