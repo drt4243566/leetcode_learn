@@ -55,4 +55,18 @@ public:
 
 int main()
 {
+    PalindromeList palind;
+    ListNode *head = new ListNode(1), *cur = head;
+    size_t i = 2;
+    while(i>5){
+        cur->next = new ListNode(2);
+        cur = cur->next;
+    }
+    
+    //打印链表
+    cur = head;
+    while(cur){
+        cout << cur->val << " ";
+        cur = cur->next;
+    }
 }
