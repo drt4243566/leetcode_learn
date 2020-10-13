@@ -17,14 +17,14 @@ public:
             return true;
         ListNode *f(A), *s(A);
         // 快慢指针遍历到终点位置时，慢指针正好指向序列的中点位置
-        while (f->next != NULL && f->next->next != NULL)
+        while (f != NULL && f->next != NULL)
         {
             f = f->next->next; // 区分快指针
             s = s->next;
         }
         s = invertLink(s);
         f = A;
-        while (f != s)
+        while (f != NULL && s != NULL) //终止条件，由于已经将后半段的链表进行了翻转
         {
             if (f->val != s->val)
                 return false;
@@ -58,9 +58,10 @@ public:
 int main()
 {
     PalindromeList palind;
-    int huiwen[] = {1, 2, 3, 4, 5, 4, 3, 2, 1};
+    int huiwen[] = {1, 2, 3, 4, 4, 3, 2, 1};
     ListNode *head = new ListNode(huiwen[0]), *cur = head;
-    for (size_t i = 1; i < 9; i++)
+    size_t sz = sizeof(huiwen) / sizeof(huiwen[0]);
+    for (size_t i = 1; i < sz; i++)
     {
         cur->next = new ListNode(huiwen[i]);
         cur = cur->next;
