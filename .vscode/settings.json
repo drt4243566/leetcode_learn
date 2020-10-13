@@ -4,5 +4,6 @@
     "C_Cpp.clang_format_fallbackStyle": "Visual Studio",
     "files.associations": {
         "stack": "cpp"
-    }
+    },
+    "editor.formatOnSave": true
 }
