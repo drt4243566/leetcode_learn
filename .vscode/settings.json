@@ -3,7 +3,7 @@
     "editor.formatOnPaste": true,
     "C_Cpp.clang_format_fallbackStyle": "Visual Studio",
     "files.associations": {
-        "stack": "cpp"
+        "stack": "cpp",
     },
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
 }
