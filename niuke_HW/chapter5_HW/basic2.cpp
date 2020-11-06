@@ -2,7 +2,8 @@
 #include <vector>
 #include <stack>
 #include <queue>
-#include <stdio.h>
+#include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -230,6 +231,68 @@ bool isComplete(ListNode *head)
     return true;
 }
 
+//字符串分隔操作
+void SplitString(const string &s, vector<string> &v, const string &c)
+{
+    string::size_type pos1, pos2;
+    pos2 = s.find(c);
+    pos1 = 0;
+    while (string::npos != pos2) //string::npos（=-1）代表结束位
+    {
+        v.push_back(s.substr(pos1, pos2 - pos1));
+        pos1 = pos2 + c.size();
+        pos2 = s.find(c, pos1);
+    }
+    if (pos1 != s.length())
+    {
+        v.push_back(s.substr(pos1));
+    }
+}
+
+// 先序序列化和反序列化
+string serialBypre(ListNode *head)
+{
+    if (head == NULL)
+    {
+        return "#_";
+    }
+    stringstream ss;
+    ss << head->val;
+    string res;
+    ss >> res;
+    res += "_";
+    res += serialBypre(head->left);
+    res += serialBypre(head->right);
+    return res;
+}
+
+// 反序列化
+ListNode *reconPre(queue<string> q)
+{
+    string value = q.front();
+    q.pop();
+    if (value == "#")
+    {
+        return NULL;
+    }
+    ListNode *head = new ListNode(stoi(value));
+    head->left = reconPre(q);
+    head->right = reconPre(q);
+    return head;
+}
+
+ListNode *reconByPreString(string res)
+{
+    vector<string> StrArr;
+    SplitString(res, StrArr, "_");
+    queue<string> q;
+    for (size_t i = 0; i != StrArr.size(); i++)
+    {
+        q.push(StrArr[i]);
+    }
+    return reconPre(q);
+}
+
 int main()
 {
     ListNode *head = new ListNode(4);
@@ -242,7 +305,10 @@ int main()
     ListNode *o1 = cur->left->left;
     ListNode *o2 = cur->right->left;
     cout << "公共祖先：" << findFather(cur, o1, o2)->findAns->val << endl;
-    */
-    printf("%d\n", isComplete(cur) ? 1 : 0);
+    printf("%d\n", isComplete(cur) ? 1 : 0);*/
+    string str = serialBypre(cur);
+    cout << serialBypre(cur) << endl;
+    ListNode *get = reconByPreString(str);
+    cout << get->val << endl;
     return 0;
 }
