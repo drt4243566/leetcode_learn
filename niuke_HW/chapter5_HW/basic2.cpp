@@ -63,9 +63,9 @@ ListNode *init(ListNode *cur)
     cur->left = new ListNode(2);
     cur->right = new ListNode(6);
     cur->left->left = new ListNode(1);
-    cur->left->right = new ListNode(3);
+    //cur->left->right = new ListNode(3);
     //cur->right->left = new ListNode(5);
-    cur->right->right = new ListNode(7);
+    //cur->right->right = new ListNode(7);
     return cur;
 }
 
