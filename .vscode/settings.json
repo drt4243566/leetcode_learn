@@ -4,7 +4,8 @@
     "C_Cpp.clang_format_fallbackStyle": "Visual Studio",
     "files.associations": {
         "stack": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "xhash": "cpp"
     },
     "editor.formatOnSave": true,
 }
