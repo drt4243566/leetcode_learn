@@ -5,7 +5,8 @@
     "files.associations": {
         "stack": "cpp",
         "iostream": "cpp",
-        "xhash": "cpp"
+        "xhash": "cpp",
+        "unordered_set": "cpp"
     },
     "editor.formatOnSave": true,
 }

@@ -6,16 +6,7 @@
 #include <unordered_set>
 
 using namespace std;
-// 边类型
-class edge
-{
-public:
-    int weight;
-    ListNode *from;
-    ListNode *to;
-    edge() {}
-    edge(int w, ListNode *f, ListNode *t) : weight(w), from(f), to(t) {}
-};
+class edge;
 // 节点类型
 class ListNode
 {
@@ -25,8 +16,18 @@ public:
     int out;
     vector<ListNode *> nexts;
     vector<edge *> edges;
-    ListNode() {}
-    ListNode(int value) : val(value) {}
+    ListNode() : val(0), in(0), out(0) {}
+    ListNode(int value) : val(value), in(0), out(0) {}
+};
+// 边类型
+class edge
+{
+public:
+    int weight;
+    ListNode *from;
+    ListNode *to;
+    edge() : weight(0), from(NULL), to(NULL) {}
+    edge(int w, ListNode *f, ListNode *t) : weight(w), from(f), to(t) {}
 };
 // 图类型包括所有的点和边
 class Graph
@@ -45,11 +46,11 @@ Graph createGraph(int inputMatrix[][3], size_t inputSize)
         int from = inputMatrix[i][1];
         int to = inputMatrix[i][2];
         // 首先在图中建立对应的节点
-        if (graph.nodes.count(from) != 0)
+        if (graph.nodes.count(from) == 0)
         {
             graph.nodes[from] = new ListNode(from);
         }
-        if (graph.nodes.count(to) != 0)
+        if (graph.nodes.count(to) == 0)
         {
             graph.nodes[to] = new ListNode(to);
         }
@@ -67,7 +68,7 @@ Graph createGraph(int inputMatrix[][3], size_t inputSize)
     return graph;
 }
 
-// BFS 宽度优先遍历算法
+// BFS 宽度优先遍历算法  非递归
 void BFS(ListNode *node)
 {
     if (node == NULL)
@@ -94,7 +95,7 @@ void BFS(ListNode *node)
     }
 }
 
-// DFS 深度优先遍历算法
+// DFS 深度优先遍历算法 非递归
 void DFS(ListNode *node)
 {
     if (node == NULL)
@@ -105,14 +106,14 @@ void DFS(ListNode *node)
     unordered_set<ListNode *> set;
     stk.push(node);
     set.insert(node);
-    printf("%d ", node->val);
+    printf("%d ", node->val); // 进栈就打印
     while (!stk.empty())
     {
         ListNode *cur = stk.top();
         stk.pop();
         for (auto next : cur->nexts)
         {
-            if (set.find(next) != set.end())
+            if (set.find(next) == set.end())
             {
                 stk.push(cur);
                 stk.push(next);
@@ -124,10 +125,31 @@ void DFS(ListNode *node)
     }
 }
 
+void DFSrecursive(ListNode *node)
+{
+    if (node == NULL)
+    {
+        return;
+    }
+    static unordered_set<ListNode *> DFS_Set; // 递归版本，静态哈希表
+    DFS_Set.insert(node);
+    printf("%d ", node->val);
+    for (auto next : node->nexts)
+    {
+        if (DFS_Set.find(next) == DFS_Set.end())
+        {
+            DFSrecursive(next);
+        }
+    }
+}
+
 int main()
 {
-    int InputMatrix[][3] = {{1, 1, 2}, {1, 1, 3}, {2, 1, 4}, {1, 3, 4}};
+    int InputMatrix[][3] = {{1, 1, 2}, {1, 1, 3}, {1, 2, 3}, {1, 3, 4}, {1, 3, 5}, {1, 2, 6}};
     size_t inputSize = sizeof(InputMatrix) / sizeof(InputMatrix[0]);
     Graph g = createGraph(InputMatrix, inputSize);
+    DFS(g.nodes[1]);
+    cout << endl;
+    DFSrecursive(g.nodes[1]);
     return 0;
 }
