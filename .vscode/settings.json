@@ -1,12 +1,14 @@
 {
-    "editor.formatOnType": true,
+    //"editor.formatOnType": true,
     "editor.formatOnPaste": true,
     "C_Cpp.clang_format_fallbackStyle": "Visual Studio",
     "files.associations": {
         "stack": "cpp",
         "iostream": "cpp",
         "xhash": "cpp",
-        "unordered_set": "cpp"
+        "unordered_set": "cpp",
+        "vector": "cpp",
+        "deque": "cpp"
     },
-    "editor.formatOnSave": true,
+    //"editor.formatOnSave": true,
 }

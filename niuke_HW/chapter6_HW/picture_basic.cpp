@@ -131,7 +131,7 @@ void DFSrecursive(ListNode *node)
     {
         return;
     }
-    static unordered_set<ListNode *> DFS_Set; // 递归版本，静态哈希表
+    static unordered_set<ListNode *> DFS_Set; // 递归版本，采用静态变量，下一次调用时忽略此句话
     DFS_Set.insert(node);
     printf("%d ", node->val);
     for (auto next : node->nexts)
