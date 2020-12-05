@@ -98,5 +98,6 @@ int main()
         printf("%d ", res[i]);
     }
     vector<vector<int> > result = getNearless(a, aSize);
+    
     return 0;
 }
