@@ -8,7 +8,9 @@
         "xhash": "cpp",
         "unordered_set": "cpp",
         "vector": "cpp",
-        "deque": "cpp"
+        "deque": "cpp",
+        "xstring": "cpp",
+        "ostream": "cpp"
     },
     //"editor.formatOnSave": true,
 }
