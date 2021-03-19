@@ -10,7 +10,8 @@
         "vector": "cpp",
         "deque": "cpp",
         "xstring": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "atomic": "cpp"
     },
     //"editor.formatOnSave": true,
 }

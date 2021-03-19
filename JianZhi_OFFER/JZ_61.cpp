@@ -39,7 +39,3 @@ public:
         return nums[4]-nums[joker]<5;
     }
 };
-
-int main(){
-    vector<int> 
-}
