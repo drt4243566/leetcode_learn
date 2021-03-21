@@ -2,7 +2,7 @@
 #include <vector>
 #include <stack>
 using namespace std;
-
+// 逆序打印单链表
 struct ListNode {
      int val;
      ListNode *next;
@@ -45,7 +45,7 @@ public:
     }
 };
 
-// 方法2 摘自Leetcode上其他人的解法
+// 方法2 更合理的反转链表写法，设置pre,cur和next，而且next只有在每次循环开始才重新创建
 class Solution2{
 public:
     vector<int> reversePrint(ListNode *head){
@@ -67,7 +67,7 @@ public:
     }
 };
 
-// 方法3 偷鸡做法
+// 方法3 偷鸡做法，辅助栈
 class Solution3
 {
 public:
@@ -108,6 +108,26 @@ void printNode(ListNode *head){
     }
 }
 
+// 方法5 递归解法
+class Solution5
+{
+private:
+    vector<int> res;
+public:
+    vector<int> reversePrint(ListNode *head)
+    {
+        dfs(head);
+        return res;
+    }
+    void dfs(ListNode* head){
+        // 递归到链表的末尾
+        if(head==nullptr) return;
+        dfs(head->next);
+        res.push_back(head->val);
+        return;
+    }
+};
+
 int main(){
     vector<int> inputData = {1,2,4,5};
     ListNode *head = new ListNode(inputData[0]);
@@ -123,7 +143,8 @@ int main(){
     Solution1 sol1;
     Solution2 sol2;
     Solution3 sol3;
-    res = sol3.reversePrint(head);
+    Solution5 sol5;
+    res = sol5.reversePrint(head);
     for(int i=0; i<res.size(); i++){
         cout << res[i] << " ";
     }

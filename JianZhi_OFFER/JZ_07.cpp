@@ -2,6 +2,7 @@
 #include <vector>
 #include <unordered_map>
 #include <stack>
+
 using namespace std;
 /**
  * Definition for a binary tree node.*/
@@ -12,13 +13,17 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
+// 重建二叉树，递归解法只适用于二叉树没有重复节点值的情况，实际上一个先序序列的信息已经足够重建，只是缺少二叉树子树如何划分
+
 class Solution
 {
 public:
     TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder)
     {
+        // 在先序遍历序列的基础上，对中序序列进行划分
         this->preorder = preorder;
         for(int i=0;i<inorder.size();i++){
+            // 主要为了查找数字对应的位置
             dic[inorder[i]] = i;
         }
         return buildRecur(0, 0 ,inorder.size() - 1);
@@ -27,6 +32,7 @@ public:
 private:
     vector<int> preorder;
     unordered_map<int,int> dic;         // 哈希表查询加速
+    //buildRecur对应的二叉树，root作为根节点，子节点的范围：[left,right]
     TreeNode *buildRecur(int root, int left, int right)
     {
         if(left>right) return NULL;     // 可以在叶节点下都添加NULL指针

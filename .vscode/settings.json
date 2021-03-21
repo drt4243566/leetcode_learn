@@ -1,17 +1,22 @@
 {
     //"editor.formatOnType": true,
     //"editor.formatOnPaste": true,
-    "C_Cpp.clang_format_fallbackStyle": "Visual Studio",
+    //"C_Cpp.clang_format_fallbackStyle": "Visual Studio",
     "files.associations": {
         "stack": "cpp",
         "iostream": "cpp",
         "xhash": "cpp",
         "unordered_set": "cpp",
-        "vector": "cpp",
         "deque": "cpp",
         "xstring": "cpp",
         "ostream": "cpp",
-        "atomic": "cpp"
+        "atomic": "cpp",
+        "list": "cpp",
+        "string": "cpp",
+        "vector": "cpp"
     },
     //"editor.formatOnSave": true,
+    "files.exclude": {
+         "**/*.exe": true,
+    },
 }
