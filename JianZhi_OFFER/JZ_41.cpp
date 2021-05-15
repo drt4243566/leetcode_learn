@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <queue>
+#include <functional>
 
 using namespace std;
 
@@ -55,3 +56,6 @@ int main(){
     cout << res << endl;
     return 0;
 }
+/*
+priority_queue<int,vector<int>,less<int>> maxheap;
+priority_queue<int,vector<int>,greater<int>> minheap;*/

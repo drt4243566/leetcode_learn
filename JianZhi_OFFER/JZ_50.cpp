@@ -25,3 +25,25 @@ public:
         return ' ';
     }
 };
+
+// 哈希表直接储存bool类型，更加精简
+class Solution2 {
+public:
+    char firstUniqChar(string s) {
+        unordered_map<char,bool> dic;
+        for(int i=0;i<s.size();i++){
+            dic[s[i]] = dic.find(s[i])==dic.end();
+        }
+        for(char c:s){
+            if(dic[c]) return c;
+        }
+        return ' ';
+    }
+};
+
+int main(){
+    Solution sol;
+    string s = "1252144";
+    char res = sol.firstUniqChar(s);
+    return 0;
+}

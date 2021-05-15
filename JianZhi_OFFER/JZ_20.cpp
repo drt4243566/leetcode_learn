@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// 经典有限状态机，特殊的例子 3E+ 这个不行，因为E后面没有数字
 class Solution{
 public:
     bool isNumber(string s){

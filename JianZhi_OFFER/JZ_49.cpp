@@ -1,4 +1,6 @@
 #include <vector>
+#include <queue>
+#include <unordered_set>
 using namespace std;
 // 基本思路——动态规划，可以证明丑数必然是用到全部三个因子，分别记录其下标a,b,c
 // 为了要维持丑数的间隔，每次都要选取三者递推后的最小值
@@ -20,6 +22,33 @@ public:
             if(dp[i]==n5) c++;
         }
         return dp[n-1];
+    }
+};
+
+// 优先队列--小根堆方法
+class Solution2 {
+public:
+    int nthUglyNumber(int n) {
+        unordered_set<int> set;
+        vector<int> factors = {2,3,5};
+        // 经典小根堆
+        priority_queue<long,vector<long>,greater<long>> heap;
+        set.insert(1L);
+        heap.push(1L);
+        int res=0;
+        for(int i=0;i<n;i++){
+            long tmp = heap.top();
+            heap.pop();
+            res = tmp;
+            for(int j=0;j<3;j++){
+                long next = tmp*factors[j];
+                if(!set.count(next)){
+                    set.insert(next);
+                    heap.push(next);
+                }
+            }
+        }
+        return res;
     }
 };
 

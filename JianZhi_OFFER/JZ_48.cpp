@@ -39,4 +39,18 @@ public:
         }
         return res;
     }
-}；
+};
+
+class Solution3 {
+public:
+    int lengthOfLongestSubstring(string s) {
+        unordered_map<char,int> dic;
+        int res=0,i=-1;
+        for(int j=0;j<s.size();j++){
+            i=dic.count(s[j])?max(i,dic[s[j]]):i;
+            dic[s[j]] = j;
+            res = max(res,j-i);
+        }
+        return res;
+    }
+};

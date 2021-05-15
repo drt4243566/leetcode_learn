@@ -38,7 +38,7 @@ public:
                 nums[k] = tmp[i++];
             }else if(tmp[i]<=tmp[j]){ //此处的小于等于号
                 nums[k] = tmp[i++];
-            } else{                 // 右侧子区间归并时需要计算逆序对
+            }else{                 // 右侧子区间归并时需要计算逆序对
                 nums[k] = tmp[j++];
                 count += mid-i+1;
             }
@@ -46,3 +46,33 @@ public:
         return count;
     }
 };
+
+// 经典归并排序
+void merge(vector<int>& arr,int L,int mid,int R){
+    vector<int> helper(R-L+1,0);
+    int i=0;
+    int p1 = L;
+    int p2 = mid+1;
+    while(p1<=mid && p2<=R){
+        helper[i++] = arr[p1]<=arr[p2]?arr[p1++]:arr[p2++];
+    }
+    while(p1<=mid){
+        helper[i++] = arr[p1++];
+    }
+    while(p2<=mid){
+        helper[i++] = arr[p2++];
+    }
+    for(int i=0;i<helper.size();i++){
+        arr[L+i] = helper[i];
+    }
+}
+
+void process(vector<int>& arr,int L,int R){
+    if(L==R){
+        return;
+    }
+    int mid = L+(R-L)/2;
+    process(arr,L,mid);
+    process(arr,mid+1,R);
+    merge(arr,L,mid,R);
+}

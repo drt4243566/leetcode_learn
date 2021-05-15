@@ -48,6 +48,41 @@ public:
     }
 };
 
+class InvertK{
+public:
+    ListNode* reverseKGroup(ListNode* head, int k) {
+        ListNode* dummy =new ListNode(0);
+        dummy->next = head;
+        ListNode* pre = dummy,*end = dummy;
+        while(end!=nullptr){
+            for(int i=0;i<k;i++){
+                if(end==nullptr) break;
+                end = end->next;
+            }
+            if(end==nullptr) break;
+            ListNode* start = pre->next;
+            ListNode* next = end->next;
+            end->next = nullptr;
+            pre->next = reverseList(start);
+            start->next = next;
+            pre = start;
+            end = pre;
+        }
+        return dummy->next;
+    }
+    ListNode *reverseList(ListNode *head)
+    {
+        ListNode *pre = NULL, *cur = head, *next = NULL;
+        while(cur!=NULL){
+            next = cur->next;
+            cur->next = pre;
+            pre = cur;
+            cur = next;
+        }
+        return pre;
+    }
+};
+
 int main(){
     return 0;
 }

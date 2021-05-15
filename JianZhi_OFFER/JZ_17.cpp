@@ -1,9 +1,10 @@
 #include<iostream>
 #include<vector>
-#include<math.h>
+#include<math.h> 
 #include<string>
 #include<memory.h>
 #include <cstring>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -54,6 +55,32 @@ public:
     }
 };
 
+class Solu {
+public:
+    vector<int> printNumbers(int n) {
+        vector<string> res;
+        vector<int> final;
+        string num(n,0);
+        recur(res,num,0,n);
+        for(string s:res){
+            int temp = atoi(s.c_str());
+            final.push_back(temp);
+        }
+        final.erase(final.begin());
+        return final;
+    }
+    void recur(vector<string>& res,string& num,int cur,int n){
+        if(cur==n){
+            res.push_back(num);
+            return;
+        }
+        // 要想把int数字存到string里面，还是要和'0'进行运算
+        for(int i=0;i<10;i++){
+            num[cur] = i+'0';
+            recur(res,num,cur+1,n); 
+        }
+    }
+};
 
 // 除了递归方法以外，还有一种直观方法，就是直接使用字符串形式来模拟数字的递增加法，然后是对于字符串的输出函数
 // 存在一个问题，只会打印从1开始的数字，因此有必要先单独打印一个‘0’
@@ -136,13 +163,19 @@ public:
 
 int main(){
     int n=1;
+    Solu so;
+    so.printNumbers(n);
     Solution2 sol2;
     sol2.printNumbers(n);
+    string t = "00023";
+    cout << atoi(t.c_str())<<endl;
+    /*
     Solution3 sol3;
     sol3.printMax(n);
     printf("\n");
     Solution4 sol4;
     sol4.printMAX(n);
+    */
     //vector<int> res = sol.printNumbers(n);
     /*for(int i=0;i<res.size();i++){
         printf("%d ",res[i]);

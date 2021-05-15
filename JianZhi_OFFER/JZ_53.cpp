@@ -37,6 +37,7 @@ public:
     int search(vector<int>& nums, int target) {
         return helper(nums,target)-helper(nums,target-1);
     }
+    // 找右边界的函数
     int helper(vector<int>& nums, int target){
         int i=0, j=nums.size()-1;
         while(i<=j){

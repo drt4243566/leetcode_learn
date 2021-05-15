@@ -27,6 +27,7 @@ public:
 
 // 单调栈解法： 递增入辅助栈，出现递减节点时要将栈内元素弹出；
 // 思路来源于先序遍历的根-左-右，
+// https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-hou-xu-bian-li-xu-lie-lcof/solution/dan-diao-di-zeng-zhan-by-shi-huo-de-xia-tian/
 class Solution2{
 public:
     bool verifyPostorder(vector<int> &postorder){

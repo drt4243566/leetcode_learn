@@ -18,8 +18,8 @@ class Solution
 public:
     ListNode *mergeTwoLists(ListNode *l1, ListNode *l2)
     {
-        ListNode *head = new ListNode(0);
-        ListNode *cur = head;
+        ListNode *dummy = new ListNode(0);
+        ListNode *cur = dummy;
         while(l1&&l2){
             if(l1->val<=l2->val){
                 cur->next = l1;
@@ -32,6 +32,6 @@ public:
             cur = cur->next;
         }
         cur->next = l1?l1:l2;
-        return head->next;
+        return dummy->next;
     }
 };

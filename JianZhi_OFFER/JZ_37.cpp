@@ -17,6 +17,7 @@ class Codec {
 public:
 
     // Encodes a tree to a single string.
+    // 采用层序遍历的形式
     string serialize(TreeNode* root) {
         if(root==nullptr) return "[]";
         string res = "[";
@@ -44,6 +45,8 @@ public:
     // Decodes your encoded data to tree.
     TreeNode* deserialize(string data) {
         if(data=="[]") return nullptr;
+        // 序列化列表vals —— 去掉首尾的中括号，再用逗号分隔
+        // 关键点在于这是一个临时对象，不能绑定在非常量的变量上
         vector<string> vals = splitString(data.substr(1,data.size()-2),",");
         TreeNode* root = new TreeNode(stoi(vals[0]));
         queue<TreeNode*> q;

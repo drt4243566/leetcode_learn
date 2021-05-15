@@ -70,3 +70,33 @@ public:
         return res->next;
     }
 };
+
+class reviewSol{
+    ListNode* addTwoNumbers(ListNode* l1,ListNode* l2){
+        ListNode* head = new ListNode(0);
+        ListNode* cur = head;
+        bool carry=false;
+        int sum=0;
+        while(l1||l2){
+            sum=0;
+            if(l1){
+                sum += l1->val;
+                l1 = l1->next;
+            }
+            if(l2){
+                sum += l2->val;
+                l2 = l2->next;
+            }
+            if(carry){
+                sum++;
+            }
+            cur->next = new ListNode(sum%10);
+            cur = cur->next;
+            carry = sum>=10?true:false;
+        }
+        if(carry){
+            cur->next = new ListNode(1);
+        }
+        return head->next;
+    }
+};
