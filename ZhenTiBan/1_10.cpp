@@ -6,6 +6,7 @@ public:
         int len = getNumLen(n);
         if(len<2) return 1;
         int temp = pow(10,len-1);
+        // 首位数字
         int first = n/temp;
         int firstNum = first==1?n%temp+1:temp;
         int otherNum = first*(temp/10)*(len-1);

@@ -64,5 +64,6 @@ Node* findLoopStart(Node* head){
     return ptr;
 }
 int main(){
+    cout << "my 神";
     return 0;
 }
