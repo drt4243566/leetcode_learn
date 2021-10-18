@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-// dp[i][j]代表——S1的前i-1个和S2的前j-1长度的字符串存在的公共字符串个数  text[0,j-2]?
+// dp[i][j]代表——S1的[0,i-1]和S2的[0,j-1]上的字符串存在的公共字符串个数  text[0,j-2]?
 class Solution{
 public:
     int longestCommonSubsequence(string text1, string text2){

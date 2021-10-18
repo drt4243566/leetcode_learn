@@ -52,6 +52,7 @@ void InsertSort(vector<int>& a){
     }
 }
 
+
 // 归并排序 -- 稳定排序，时间复杂度O(NlogN)
 void merge(vector<int>& a,int L,int mid,int R){
     vector<int> help(R-L+1);
@@ -150,7 +151,7 @@ vector<int> partition(vector<int>& a,int L,int R){     // 经典划分函数，�
 }
 void RandomFastSort(vector<int>& a,int L,int R){   //[L,R]
     if(L<R){
-        swap(a,rand()%(R-L+1),R);
+        swap(a,L+rand()%(R-L+1),R);
         vector<int> p = partition(a,L,R);
         RandomFastSort(a,L,p[0]-1);
         RandomFastSort(a,p[1]+1,R);
@@ -165,7 +166,7 @@ void printNum(const vector<int> a){
 }
 
 int main(){
-    vector<int> a = {2,3,5,4,6,9,8};
+    vector<int> a = {2,3,5,4,6,3,8};
     RandomFastSort(a,0,a.size()-1);
     printNum(a);
 }

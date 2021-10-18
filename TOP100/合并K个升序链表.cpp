@@ -29,7 +29,7 @@ public:
             pq.pop();
             pre->next = cur;
             pre = pre->next;
-            if(pre->next) pq.push(p)
+            if(pre->next) pq.push(p);
         }
     }
 };
