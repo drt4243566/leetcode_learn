@@ -14,8 +14,10 @@ def mul(*args):
 def move(n, a, b, c):
     if(n == 1):
         print(a, '-->', c)
-        return
-    return move(n-1, a, c, b)
+    else:
+        move(n-1, a, c, b)
+        print(a, '-->', c)
+        move(n-1, b, a, c)
 
 
 # 测试
@@ -37,3 +39,5 @@ else:
         print('测试失败!')
     except TypeError:
         print('测试成功!')
+
+move(3, 'A', 'B', 'C')
